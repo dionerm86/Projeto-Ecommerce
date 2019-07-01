@@ -19,12 +19,6 @@ namespace SalesWebMVC.Controllers
             return View();
         }
 
-        /// <summary>
-        /// Mètodo para busca de registro de venda
-        /// </summary>
-        /// <param name="minDate"></param>
-        /// <param name="maxDate"></param>
-        /// <returns>Retorna o método que busca as vendas por data</returns>
         public async Task<IActionResult> SimpleSearch(DateTime? minDate, DateTime? maxDate)
         {
             if (!minDate.HasValue)
@@ -44,12 +38,6 @@ namespace SalesWebMVC.Controllers
             return View(result);
         }
 
-        /// <summary>
-        /// Método de busca agrupando as vendas por departamento
-        /// </summary>
-        /// <param name="minDate"></param>
-        /// <param name="maxDate"></param>
-        /// <returns>Retorna o método que busca as vendas por data, adiconando um GroupBy Department na consulta</returns>
         public async Task<IActionResult> SimpleGroup(DateTime? minDate, DateTime? maxDate)
         {
             if (!minDate.HasValue)

@@ -26,10 +26,7 @@ namespace SalesWebMVC.Controllers
             return View(list);
         }
 
-        /// <summary>
-        /// Esse método abre a view para cadastrar o vendedor
-        /// </summary>
-        /// <returns></returns>
+        //Esse método abre o formulário para cadastrar o vendedor
         public async Task<IActionResult> Create()
         {
             var departments = await _departmentService.FindAllDepartmentsAsync();
