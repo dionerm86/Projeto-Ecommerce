@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SalesWebMVC.Models;
+using System.Linq;
 
 namespace SalesWebMVC.Controllers
 {
@@ -19,9 +20,15 @@ namespace SalesWebMVC.Controllers
         }
 
         // GET: Departments
-        public async Task<IActionResult> Index()
+        public IActionResult Index(int? id)
         {
-            return View(await _context.Department.ToListAsync());
+            var sql = _context.Department.AsQueryable();
+
+            if (id > 0)
+            {
+                sql = sql.Where(x => x.Id.ToString().Contains(id.ToString()));
+            }
+            return View(sql.ToList());
         }
 
         // GET: Departments/Details/5
